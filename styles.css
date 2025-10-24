@@ -1,0 +1,489 @@
+:root{
+        --bg: #3b0d10;
+        --bg-2: #2a0a0c;
+        --text: #f6ead7;
+        --muted: #e1cdb5;
+        --accent: #8d1f1f;
+        --accent-2: #b4382d;
+        --border: rgba(255,255,255,.08);
+        --shadow: rgba(0,0,0,.45);
+        --card: rgba(59,13,16,.55);
+      }
+
+      *{ box-sizing: border-box; }
+      
+      body{
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: Inter, sans-serif;
+        line-height: 1.5;
+      }
+      .container{ width: min(1100px, 92vw); margin: 0 auto; }
+      .header{
+        backdrop-filter: saturate(120%) blur(8px);
+        background: linear-gradient(to bottom, color-mix(in oklab, var(--bg) 92%, transparent), transparent);
+        border-bottom: 1px solid var(--border);
+      }
+
+.site-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 2rem;
+  height: 80px;
+  z-index: 1;
+}
+
+/* 🔹 MENÚ FIJO, SIEMPRE VISIBLE */
+.main-menu {
+  position: sticky;
+  top: 25px;                /* Ajusta la distancia desde arriba */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 2rem;
+  z-index: 2000;            /* Asegura que quede por encima de todo */
+  padding: 0.6rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  background: rgba(59, 13, 16, 0.9); /* Color granate con transparencia */
+}
+
+.main-menu a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.main-menu a:hover {
+  color: var(--accent-2);
+}
+
+
+/* 🔹 Logo y carrito normales */
+.logo img {
+  height: 50px;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.4rem;
+}
+
+
+
+      .nav{ display:flex; align-items:center; justify-content:space-between; padding: 14px 0; }
+      .logo{ display:flex; align-items:center; gap:10px; text-decoration:none; color: var(--text); }
+      .logo-mark{ width: 30px; height: 30px; display:grid; place-items:center; border: 1px solid var(--border); border-radius: 8px; background: color-mix(in oklab, var(--card) 75%, transparent); font-size: 18px; }
+      .logo-text{ font-weight: 800; letter-spacing: .5px; }
+      nav[aria-label="Principal"]{ display:flex; align-items:center; gap: 22px; }
+      nav[aria-label="Principal"] a{ color: var(--text); text-decoration:none; font-weight: 500; opacity: .92; }
+      nav[aria-label="Principal"] a:hover{ opacity: 1; }
+      .nav-actions{ display:flex; align-items:center; gap: 10px; }
+      .icon-btn{ width: 42px; height: 42px; display:grid; place-items:center; cursor:pointer; border-radius: 12px; background: transparent; color: var(--text); border: 1px solid var(--border); }
+      .icon-btn:hover{ background: color-mix(in oklab, var(--card) 72%, transparent); }
+      .icon{ font-size: 20px; line-height: 1; }
+      .cart{ position: relative; }
+      .badge{ position:absolute; top:-6px; right:-6px; min-width: 18px; height: 18px; padding: 0 5px; display:grid; place-items:center; border-radius: 12px; background: var(--accent); color: #fff; font-size: 12px; font-weight: 700; }
+      .hero{ position:relative; min-height: 72vh; display:flex; align-items:center; background: #000 url('img/copa.jpg') center/cover no-repeat fixed; }
+      .hero::before{ content:""; position:absolute; inset:0; background: linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,.45) 30%, rgba(0,0,0,.6)); }
+      .hero .overlay{ position:relative; z-index: 1; padding: 80px 0; }
+      .hero h1{ font-family: 'Playfair Display', serif; font-weight: 800; font-size: clamp(36px, 5vw, 64px); line-height: 1.08; margin: 0 0 14px; text-shadow: 0 2px 12px var(--shadow); }
+      .hero p{ max-width: 52ch; font-size: clamp(16px, 2.2vw, 20px); margin: 0 0 28px; color: var(--muted); }
+      .cta{ display:inline-block; background: var(--accent); color:#fff; text-decoration:none; padding: 14px 22px; border-radius: 14px; font-weight: 700; box-shadow: 0 6px 20px rgba(0,0,0,.35); transition: transform .08s ease, box-shadow .2s; }
+      .cta:hover{ transform: translateY(-1px); box-shadow: 0 10px 24px rgba(0,0,0,.38); }
+      .cta:active{ transform: translateY(0); }
+      @media (max-width: 640px){
+        nav[aria-label="Principal"]{ display:none; }
+        .hero{ min-height: 70vh; background-attachment: scroll; }
+      }
+      .logo img {
+  height: 90px;
+}
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* ======== Sección Cómo funciona ======== */
+.how-it-works {
+  padding: 60px 20px;
+  background-color: #2b0000;
+  color: #fff;
+}
+
+.how-it-works h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.how-it-works .brand {
+  color: #d4af37; /* dorado */
+}
+
+.how-it-works-content {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap; /* para que en móviles se apile */
+}
+
+.steps {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  min-width: 280px;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.icon {
+  width: 45px;
+  height: 45px;
+  background-color: #d4af37;
+  color: #2b0000;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step p {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.map-container {
+  flex: 1.2;
+  min-width: 400px;
+  height: 350px; /* altura fija del mapa */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0px 4px 15px rgba(0,0,0,0.3);
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+/* expericias */
+* {
+  box-sizing: border-box;
+}
+
+.experiencias {
+  background: #f4e0c7;
+  padding: 3rem 2rem;
+  color: #3b0d0d;
+}
+
+.contenedor-experiencias {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.texto-experiencias {
+  flex: 1;
+  max-width: 40%;
+}
+
+.texto-experiencias h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.texto-experiencias p {
+  line-height: 1.5;
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+}
+
+.wrapper {
+  display: flex;
+  flex: 1;
+  justify-content: space-around;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+/* === ESTILO DE LAS CARDS === */
+.card {
+  width: 250px;
+  height: 360px;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Capa de color al hacer hover */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(90, 12, 12, 0.5), rgba(198, 134, 47, 0.9));
+  opacity: 0;
+  transition: 0.5s all;
+  z-index: 2;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card .info {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  z-index: 3;
+  color: #fff;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 0.5s all;
+}
+
+.card:hover .info {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.card .info h1 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.card .info p {
+  font-size: 0.9rem;
+  margin: 10px 0 15px;
+}
+
+.card .btn {
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  background: #fff;
+  color: #000;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: 0.3s ease-in-out;
+}
+
+.card .btn:hover {
+  background: #e0e0e0;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .contenedor-experiencias {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .texto-experiencias {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .wrapper {
+    justify-content: center;
+  }
+
+  .card {
+    width: 80%;
+  }
+}
+
+
+/* === CONTENEDOR PRINCIPAL === */
+.contacto {
+  width: 100%;
+  display: flex;
+  justify-content: center;     /* centra horizontalmente */
+  align-items: center;         /* centra verticalmente */
+  padding: 60px 20px;
+  box-sizing: border-box;
+}
+
+/* === CONTENEDOR INTERNO === */
+.contenedor-contacto {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: center;     /* centra el bloque interior */
+  align-items: flex-start;
+}
+
+/* === BLOQUE IMAGEN + FORMULARIO === */
+.formulario-con-imagen {
+  display: flex;
+  justify-content: center;     /* centra horizontalmente */
+  align-items: flex-start;
+  gap: 60px;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1000px;
+  background-color: transparent; /* opcional: elimina posibles fondos */
+}
+
+/* === COLUMNA IZQUIERDA: IMAGEN === */
+.imagen-contacto {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.imagen-contacto img {
+  width: 100%;
+  max-width: 280px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* === COLUMNA DERECHA: FORMULARIO === */
+.contenido-formulario {
+  flex: 1 1 400px;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contenido-formulario h2 {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+
+.contenido-formulario h2 {
+  text-align: left;
+  margin: 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.fila {
+  display: flex;
+  gap: 10px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#btn-enviar {
+  background-color: #800020;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+#btn-enviar:hover {
+  background-color: #a52a2a;
+}
+
+/*footer */
+
+.minimal-footer {
+  background-color: #3b0d10;   /* fondo vino */
+  padding: 15px 75px;
+  width: 100%;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  line-height: 24px;
+}
+
+.footer-logo img {
+  height: 50px;   /* ajusta tamaño del logo */
+  opacity: 0.9;
+}
+
+.footer-social {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.social-link {
+  display: inline-flex;
+  padding: 10px;
+  color: #fff;
+  text-align: center;
+}
+
+.social-link svg {
+  width: 24px;
+  height: 24px;
+  fill: #fff;
+  transition: fill 0.3s ease;
+}
+
+.social-link:hover svg {
+  fill: #a52a2a;  /* color vino al hover */
+}
+
