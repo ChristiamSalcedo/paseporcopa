@@ -38,17 +38,13 @@
 
 /* 🔹 MENÚ FIJO, SIEMPRE VISIBLE */
 .main-menu {
-  position: sticky;
-  top: 25px;                /* Ajusta la distancia desde arriba */
-  left: 50%;
-  transform: translateX(-50%);
   display: flex;
   gap: 2rem;
-  z-index: 2000;            /* Asegura que quede por encima de todo */
+  margin: 0 auto;
   padding: 0.6rem 2rem;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  background: rgba(59, 13, 16, 0.9); /* Color granate con transparencia */
+  background: rgba(59, 13, 16, 0.9);
 }
 
 .main-menu a {
@@ -64,23 +60,11 @@
 }
 
 
-/* 🔹 Logo y carrito normales */
+/* 🔹 Logo */
 .logo img {
   height: 50px;
 }
 
-.nav-actions {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.icon-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 1.4rem;
-}
 
 
 
@@ -202,7 +186,6 @@
 
 .experiencias {
   background: #f4e0c7;
-  padding: 3rem 2rem;
   color: #3b0d0d;
 }
 
@@ -217,6 +200,7 @@
 .texto-experiencias {
   flex: 1;
   max-width: 40%;
+  margin: 2rem 3rem;
 }
 
 .texto-experiencias h2 {
@@ -237,6 +221,7 @@
   justify-content: space-around;
   gap: 1.5rem;
   flex-wrap: wrap;
+  margin-top: 2rem; /* ajustá según lo que necesites */
 }
 
 /* === ESTILO DE LAS CARDS === */
@@ -321,27 +306,6 @@
 
 .card .btn:hover {
   background: #e0e0e0;
-}
-
-/* Responsive */
-@media (max-width: 900px) {
-  .contenedor-experiencias {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .texto-experiencias {
-    max-width: 100%;
-    text-align: center;
-  }
-
-  .wrapper {
-    justify-content: center;
-  }
-
-  .card {
-    width: 80%;
-  }
 }
 
 
@@ -443,25 +407,36 @@ input, textarea {
 }
 
 /*footer */
-
-.minimal-footer {
-  background-color: #3b0d10;   /* fondo vino */
-  padding: 15px 75px;
+html, body {
+  margin: 0;
+  padding: 0;
   width: 100%;
 }
 
+.minimal-footer {
+  background-color: #3b0d10;
+  padding: 15px 0;
+  width: 100%;
+}
+
+
 .footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 16px;
-  line-height: 24px;
 }
 
+
 .footer-logo img {
-  height: 50px;   /* ajusta tamaño del logo */
-  opacity: 0.9;
+  max-height: 50px;
+  width: auto;
+  display: block;
 }
+
 
 .footer-social {
   display: flex;
@@ -470,20 +445,22 @@ input, textarea {
 }
 
 .social-link {
-  display: inline-flex;
-  padding: 10px;
-  color: #fff;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
 }
 
-.social-link svg {
+.social-link img {
   width: 24px;
   height: 24px;
-  fill: #fff;
-  transition: fill 0.3s ease;
+  object-fit: contain;
+  transition: filter 0.3s ease;
 }
 
-.social-link:hover svg {
-  fill: #a52a2a;  /* color vino al hover */
+
+/* Efecto hover similar al fill de los SVG */
+.social-link:hover img {
+  filter: brightness(0.7) sepia(1) hue-rotate(-20deg) saturate(2);
 }
 
