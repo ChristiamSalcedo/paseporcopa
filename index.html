@@ -7,29 +7,28 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<body>
   <header class="site-header">
     <div class="logo">
       <img src="img/logoclaro.png" alt="Logo Pase por Copa" />
     </div>
 
     <nav class="main-menu" aria-label="Principal">
-      <a href="#">Inicio</a>
-      <a href="#">Experiencias</a>
-      <a href="#">Bodegas</a>
-      <a href="#">Contacto</a>
+      <a href="index.html">Inicio</a>
+      <a href="#experiencias">Experiencias</a>
+      <a href="catalogo.html">Bodegas</a>
+      <a href="#contacto">Contacto</a>
     </nav>
   </header>
-</body>
 
     
     <section class="hero">
       <div class="container overlay">
         <h1>Un pase, una copa, muchas bodegas por descubrir</h1>
         <p>Accedé a degustaciones en bodegas y vinotecas sin pagar recorridos guiados.</p>
-        <a href="#" class="cta">Reservá tu pase</a>
+        <a href="catalogo.html" class="cta">Reservá tu pase</a>
       </div>
     </section>
+
 
 <section class="how-it-works">
   <h2>¿Cómo funciona <span class="brand">WinePass?</span></h2>
@@ -46,7 +45,7 @@
       </div>
       <div class="step">
         <div class="icon">3</div>
-        <p>Compra tus <strong>pases</strong> y utiliza el QR para ingresar a la bodega.</p>
+        <p>Compra tus <strong>pases</strong> y disfruta de una experiencia única.</p>
       </div>
     </div>
 
@@ -58,72 +57,91 @@
 </section>
 
  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBekVlPQBsY8qH8i5gr89bgdzF_iiI6_FQ&callback=initMap" async defer></script>
-  <script>
-    function initMap() {
-      const map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 6,
-        center: { lat: -36.5, lng: -60.5 }, // Centro aproximado de Buenos Aires provincia
-        disableDefaultUI: true, // 🔥 Oculta controles y barra superior
-        styles: [/* Estilo visual personalizado, lo agregamos luego */] 
+<script>
+  function initMap() {
+    const map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 6,
+      center: { lat: -36.5, lng: -60.5 },
+      disableDefaultUI: true,
+      styles: [/* Estilo visual personalizado */]
+    });
+
+    // 🔴 Marcadores de Bodegas
+    const bodegas = [
+      { name: "Bodega AlEste", lat: -38.81409931752603, lng: -62.69427304681777, url: "https://www.bodegaaleste.com/", img: "img/bodegas/AlEste.jpg" },
+      { name: "Bodega Saldungaray", lat: -38.21499243935064, lng: -61.77631687384355, url: "https://www.bodegasaldungaray.com.ar/main", img: "img/bodegas/Saldungaray.jpg" },
+      { name: "Trapiche Costa & Pampa", lat: -38.13009145038007, lng: -57.726338816177716, url: "https://trapiche.com.ar/comin/", img: "img/bodegas/Trapiche.webp" },
+      { name: "Cordón Blanco", lat: -37.32716047996582, lng: -59.18190694781175, url: "https://cordonblanco.com/", img: "img/bodegas/CordonBlanco.jpg" },
+      { name: "Gamboa", lat: -34.25771056657454, lng: -58.91485958831745, url: "https://www.bodegagamboa.com.ar/", img: "img/bodegas/Gamboa.jpg" },
+      { name: "Finca La Anfitriona", lat: -34.26653314144725, lng: -59.48731761696653, url: "https://www.fincalaanfitriona.com/", img: "img/bodegas/LaAnfitriona.webp" },
+      { name: "Finca Las Antípodas", lat: -34.614410637370895, lng: -60.91527828571691, url: "https://www.instagram.com/lasantipodasok/", img: "img/bodegas/LasAntipodas.jpg" },
+      { name: "Estancia La Catalina – Myl Colores", lat: -38.131636987285454, lng: -61.47643650453495, url: "https://www.instagram.com/mylcolores/", img: "img/bodegas/MylColores.jpg" },
+      { name: "Bodega Puerta Del Abra", lat: -37.858291023038504, lng: -58.08209651804582, url: "https://puertadelabra.com.ar/", img: "img/bodegas/PuertaDelAbra.jpg" },
+    ];
+
+    // 🟣 Marcadores de Vinotecas (completá lat/lng, url e img)
+    const vinotecas = [
+      { name: "WINEHAUS", lat: -34.476031085745866, lng: -58.61183104122636, url: "https://www.instagram.com/winehaus.ar/?hl=es-la", img: "img/vinotecas/WINEHAUS.png" },
+      { name: "Turvina", lat: -34.62663297544024, lng: -58.37203667592344, url: "https://www.instagram.com/turvina_/", img: "img/vinotecas/Turvina.png" },
+      { name: "Duhau Restaurante & Vinoteca", lat: -34.58915662689999, lng: -58.386210689418554, url: "https://www.hyatt.com/park-hyatt/en-US/bueph-palacio-duhau-park-hyatt-buenos-aires/dining", img: "img/vinotecas/Duhau.png" },
+      { name: "Verdot Wine Bar", lat: -34.5882626005459, lng: -58.38939234232855, url: "https://www.verdotwinebar.com/es", img: "img/vinotecas/Verdot.png" },
+      { name: "Vico Wine Bar Villa Crespo", lat: -34.59255519554476, lng: -58.4336805899609, url: "https://vicowinebar.com.ar/", img: "img/vinotecas/Vico.png" },
+      { name: "Palermo Wine Club", lat: -34.58442045068619, lng: -58.43777701825468, url: "https://www.instagram.com/palermowineclub?igsh=MTJieDRybXM2bWgzag%3D%3D", img: "img/vinotecas/PalermoWineClub.png" },
+      { name: "Veredita", lat: -34.58638795285294, lng: -58.45031529311883, url: "https://www.instagram.com/veredita.devinos/?hl=es-la", img: "img/vinotecas/Veredita.png" },
+      { name: "Naranjo Bar", lat: -34.58788314262657, lng: -58.44456046243288, url: "https://www.instagram.com/naranjo_bar?igshid=1v0yyvotcs9sb", img: "img/vinotecas/Naranjo.png" },
+      { name: "Barrel Vinos - Wine Bar", lat: -34.62544421567877, lng: -58.428469082016115, url: "https://www.barrelvinos.com.ar/", img: "img/vinotecas/Barrel.png" },
+      { name: "VINOTECA CANA GALILEA", lat: -34.622007170177966, lng: -58.41942040378979, url: "https://www.instagram.com/canagalileavinoteca/?hl=es", img: "img/vinotecas/CanaGalilea.png" },
+      { name: "WineList Premium", lat: -34.5335145143023, lng: -58.50446837407907, url: "https://www.winelistpremium.com/", img: "img/vinotecas/WineList.png" },
+    ];
+
+    // 🔁 Función para crear marcadores
+    function crearMarcador(lugar, icono) {
+      const marker = new google.maps.Marker({
+        position: { lat: lugar.lat, lng: lugar.lng },
+        map,
+        title: lugar.name,
+        icon: {
+          url: icono,
+          scaledSize: new google.maps.Size(25, 25),
+          anchor: new google.maps.Point(7, 35)
+        }
       });
-
-      // Marcadores de bodegas
-      const bodegas = [
-        { name: "Bodega AlEste", lat: -38.81409931752603, lng: -62.69427304681777, url: "https://www.bodegaaleste.com/", img: "img/bodegas/AlEste.jpg" },
-        { name: "Bodega Saldungaray", lat: -38.21499243935064, lng: -61.77631687384355, url: "https://www.bodegasaldungaray.com.ar/main", img: "img/bodegas/Saldungaray.jpg" },
-        { name: "Trapiche Costa & Pampa", lat: -38.13009145038007, lng: -57.726338816177716, url: "https://trapiche.com.ar/comin/", img: "img/bodegas/Trapiche.webp" },
-        { name: "Cordón Blanco", lat: -37.32716047996582, lng: -59.18190694781175, url: "https://cordonblanco.com/", img: "img/bodegas/CordonBlanco.jpg" },
-        { name: "Gamboa", lat: -34.25771056657454, lng: -58.91485958831745, url: "https://www.bodegagamboa.com.ar/", img: "img/bodegas/Gamboa.jpg" },
-        { name: "Finca La Anfitriona", lat: -34.26653314144725, lng: -59.48731761696653, url: "https://www.fincalaanfitriona.com/", img: "img/bodegas/LaAnfitriona.webp" },
-        { name: "Finca Las Antípodas", lat: -34.614410637370895, lng: -60.91527828571691, url: "https://www.instagram.com/lasantipodasok/", img: "img/bodegas/LasAntipodas.jpg" },
-        { name: "Estancia La Catalina – Myl Colores", lat: -38.131636987285454, lng: -61.47643650453495, url: "https://www.instagram.com/mylcolores/", img: "img/bodegas/MylColores.jpg" },
-        { name: "Bodega Puerta Del Abra", lat: -37.858291023038504, lng: -58.08209651804582, url: "https://puertadelabra.com.ar/", img: "img/bodegas/PuertaDelAbra.jpg" },
-      ];
-
-      bodegas.forEach(bodega => {
-        const marker = new google.maps.Marker({
-          position: { lat: bodega.lat, lng: bodega.lng },
-          map,
-          title: bodega.name,
-           icon: {
-              url: "img/Uvita.png", // icono de uvas 🍇
-              scaledSize: new google.maps.Size(25, 25),
-              anchor: new google.maps.Point(7, 35)
-            }
-        });
 
       const info = new google.maps.InfoWindow({
         content: `
           <div style="
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center; 
-          background-color: #fff;
-          padding: 10px;
-          border-radius: 8px;
-          font-family: 'Inter', sans-serif;
-          color: #3b0d10;
-          max-width: 220px;
-          box-sizing: border-box; 
-          text-align: center;
-
-        ">
-          <img src="${bodega.img}" alt="${bodega.name}" style="width: 100px; max-height: 100px; height: auto; object-fit: cover; border-radius: 6px; margin-bottom: 6px">
-          <strong style="font-size: 16px; display:block; margin-bottom: 1px;">${bodega.name}</strong><br>
-          <a href="${bodega.url}" target="_blank" style="color: #8d1f1f; text-decoration: underline; font-size: 13px; ">Ver más</a>
-      </div>
-  `
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            color: #3b0d10;
+            max-width: 220px;
+            box-sizing: border-box;
+            text-align: center;
+          ">
+            <img src="${lugar.img}" alt="${lugar.name}" style="width: 100px; max-height: 100px; height: auto; object-fit: cover; border-radius: 6px; margin-bottom: 6px">
+            <strong style="font-size: 16px; display:block; margin-bottom: 1px;">${lugar.name}</strong><br>
+            <a href="${lugar.url}" target="_blank" style="color: #8d1f1f; text-decoration: underline; font-size: 13px;">Ver más</a>
+          </div>
+        `
       });
 
-        marker.addListener("click", () => {
-          info.open(map, marker);
-        });
+      marker.addListener("click", () => {
+        info.open(map, marker);
       });
     }
-  </script>
 
-<section class="experiencias">
+    // 🧭 Cargar marcadores
+    bodegas.forEach(b => crearMarcador(b, "img/Uvita.png"));
+    vinotecas.forEach(v => crearMarcador(v, "img/Degustacion.png")); // ← Usá tu ícono personalizado
+  }
+</script>
+
+<section id="experiencias" class="experiencias">
   <div class="contenedor-experiencias">
     
    <section class="experiencias">
@@ -132,32 +150,32 @@
     <!-- Texto a la izquierda -->
     <div class="texto-experiencias">
       <h2>Sumá experiencias con tu pase</h2>
-      <p>Accede a <strong>descuentos exclusivos</strong> en actividades</p>
+      <p>Accede a <strong>beneficios</strong> exclusivos.</p>
       <p>
-        El pase incluye 1 copa de vino y recorrido por <strong>espacios libres</strong>.<br>
-        Las experiencias adicionales son opcionales y pueden requerir reserva.
+        El pase incluye 1 copa de vino en las <strong>mejores</strong> bodegas de Buenos Aires y un recorrido libre por sus instalaciones.<br>
       </p>
+      <p>Además, podés disfrutar de <strong>degustaciones</strong> en vinotecas seleccionadas con picadas especialmente preparadas para la ocasión.</p>
     </div>
 
     <!-- Cards a la derecha -->
     <div class="wrapper">
       <!-- Card 1 -->
       <div class="card">
-        <img src="img/Bodega.jpg" alt="Cata de vinos boutique">
+        <img src="img/Bodega.jpg" alt="Bodegas adheridas">
         <div class="info">
-          <h1>Cata de vinos boutique</h1>
-          <p>Vinotecas seleccionadas</p>
-          <a href="cata.html" class="btn">Ver más</a>
+          <h1>Bodegas adheridas</h1>
+          <p>Una copa de vino seleccionada.</p>
+          <a href="catalogo.html" class="btn">Ver más</a>
         </div>
       </div>
 
       <!-- Card 2 -->
       <div class="card">
-        <img src="img/degustacion.jpg" alt="After Wine en vinotecas">
+        <img src="img/degustacion.jpg" alt="Vinotecas adheridas">
         <div class="info">
-          <h1>After Wine en vinotecas</h1>
-          <p>Espacios con ambientación musical y copa especial</p>
-          <a href="after.html" class="btn">Ver más</a>
+          <h1>Vinotecas adheridas</h1>
+          <p>Degustaciones con picadas.</p>
+          <a href="catalogo.html" class="btn">Ver más</a>
         </div>
       </div>
     </div>

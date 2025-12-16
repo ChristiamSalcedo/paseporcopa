@@ -464,3 +464,6 @@ html, body {
   filter: brightness(0.7) sepia(1) hue-rotate(-20deg) saturate(2);
 }
 
+html {
+  scroll-behavior: smooth;
+}
